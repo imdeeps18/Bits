@@ -1,0 +1,27 @@
+package bits.reverse;
+
+public class RevBits {
+    public static void main(String[] args) {
+        int n = 41;
+        System.out.println(reverseBits(n));
+    }
+    public static int reverseBits(int n) {
+        String s = Integer.toBinaryString(n);
+        //System.out.println(s);
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<32-s.length();i++){
+            sb.append("0");
+        }
+        s = sb.toString() + s;
+
+        int res = 0;
+        char[] arr = s.toCharArray();
+        for(int i=0;i< arr.length;i++){
+            if(arr[i]=='1') {
+                res += (1 << i);
+                System.out.println(res);
+            }
+        }
+        return res;
+    }
+}
